@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://d1wq4nk88bsf2"]
+
+[node name="MovingObj" type="Node3D" groups=["POINT"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.27154, 0, 0.755485)

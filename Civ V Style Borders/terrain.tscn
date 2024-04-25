@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://bsx8qwpwa0bue"]
+
+[ext_resource type="Script" path="res://terrain.gd" id="1_f7yvn"]
+[ext_resource type="Shader" path="res://Border.gdshader" id="1_khtw6"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_pwwyr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5pp1s"]
+render_priority = 0
+shader = ExtResource("1_khtw6")
+shader_parameter/positions = null
+shader_parameter/border_thickness = 0.1
+shader_parameter/scale_offset = 1.0
+shader_parameter/smooth_minimum_blend = 0.5
+shader_parameter/border_color = Color(0, 0, 0, 1)
+shader_parameter/border_alpha = 1.0
+shader_parameter/map_color = Color(1, 1, 1, 1)
+shader_parameter/map_alpha = 1.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_t6i7o"]
+material = SubResource("ShaderMaterial_5pp1s")
+size = Vector2(10, 10)
+subdivide_width = 2
+subdivide_depth = 2
+
+[node name="Terrain" type="StaticBody3D" node_paths=PackedStringArray("meshI")]
+script = ExtResource("1_f7yvn")
+meshI = NodePath("MeshInstance3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("WorldBoundaryShape3D_pwwyr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_t6i7o")
+skeleton = NodePath("../CollisionShape3D")

@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=3 uid="uid://b6bu8oohi7cda"]
+
+[ext_resource type="PackedScene" uid="uid://bsx8qwpwa0bue" path="res://terrain.tscn" id="1_rpovy"]
+[ext_resource type="Script" path="res://CharacterBody3D.gd" id="2_sd4eq"]
+[ext_resource type="PackedScene" uid="uid://duij24e3oqbw3" path="res://border_node_point.tscn" id="3_1p3lu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xjlgd"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ulhtf"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0x5kn"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ny6ss"]
+
+[node name="Example Level" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.89816, 0.369888, 1.04217)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_xjlgd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_ulhtf")
+
+[node name="BorderNodePoint" parent="StaticBody3D" instance=ExtResource("3_1p3lu")]
+radius = 1.5
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.85544, 0.369888, -0.677307)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+shape = SubResource("BoxShape3D_xjlgd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
+mesh = SubResource("BoxMesh_ulhtf")
+
+[node name="BorderNodePoint" parent="StaticBody3D2" instance=ExtResource("3_1p3lu")]
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -3.25362, 0.512803, -1.47794)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3"]
+shape = SubResource("BoxShape3D_xjlgd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D3"]
+mesh = SubResource("BoxMesh_ulhtf")
+
+[node name="BorderNodePoint" parent="StaticBody3D3" instance=ExtResource("3_1p3lu")]
+radius = 0.5
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.750988, 0.660316, 0, -0.660316, 0.750988, 0, 3.4116, -9.23867)
+
+[node name="Terrain" parent="." instance=ExtResource("1_rpovy")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.750988, 0.660316, 0, -0.660316, 0.750988, 0, 3.4116, 4.71812)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("2_sd4eq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_0x5kn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+mesh = SubResource("CapsuleMesh_ny6ss")
+skeleton = NodePath("../..")
+
+[node name="BorderNodePoint" parent="CharacterBody3D" instance=ExtResource("3_1p3lu")]
