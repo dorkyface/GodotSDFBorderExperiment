@@ -15,6 +15,7 @@ Shader Parameters:
 - Border Alpha: Changes the transparancy of the border lines. Ranges from 0.0 to 1.0
 - Map Color: Changes the color of the rest of the plane mesh
 - Map Alpha: Changes the transparency of the rest of the plane mesh
+
 *The parameters "scale offset" and "positions" should not be touched.* They're exposed so that they can be modified via script.
 
 ![Shader Parameters](https://github.com/dorkyface/GodotSDFBorderExperiment/assets/69087850/429837a2-e629-4b83-ae9d-7d73d0aef2d7)
