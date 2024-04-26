@@ -1,6 +1,8 @@
 # GodotSDFBorderExperiment
 A small project where I used a shader to draw borders around objects that can merge with one another, in the Godot game engine.
 
+![Example Picture 1](https://github.com/dorkyface/GodotSDFBorderExperiment/assets/69087850/c09e2364-2aef-4770-b113-32c5f1d73442)
+
 Link to video:
 https://youtu.be/rwbW-Fq7_n8
 
